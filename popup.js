@@ -5,8 +5,18 @@ document.getElementById('focus-here').addEventListener('click', () => {
       { type: 'focusHere', tabId: focusTab.id },
       (response) => {
         console.log(response);
+        // chrome.notifications.create(
+        //   'focusNotification',
+        //   {
+        //     type: 'basic',
+        //     iconUrl: chrome.runtime.getURL('smile.png'), // Ensure correct path
+        //     title: 'Focus Set',
+        //     message: 'Okay, focus on this tab or I will seriously judge you!',
+        //     priority: 2,
+        //   },
+        //   () => {
+        window.close();
       }
     );
-    // if we hav time lets add an alert that explains "stay on this tab or he'll seriously judge you"
   });
 });
