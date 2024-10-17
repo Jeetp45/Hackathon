@@ -3,18 +3,18 @@
   "name": "I'm judging you",
   "version": "1.0",
   "description": "Judges you if you aren't focused on your intended tab",
-  "permissions": ["tabs", "scripting", "activeTab"],
+  "permissions": ["tabs", "scripting", "activeTab", "notifications"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "smile.png"
+    "default_icon": "icon.png"
   },
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
-      "resources": ["smile.png", "angry.png"],
+      "resources": ["smile.png", "angry.png", "icon.png"],
       "matches": ["<all_urls>"]
     }
   ]
