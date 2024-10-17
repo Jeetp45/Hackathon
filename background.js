@@ -13,8 +13,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     focusTabId = message.tabId;
     injectContentScript(focusTabId);
     sendResponse({ status: 'Successfully set focus tab' });
-    /////////////////we might need an else statement to account for when we have not yet received the message
-    //} else if (message.type  ) {}
   }
 });
 
@@ -23,8 +21,6 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
   changeSmiley(activeInfo.tabId);
 });
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Listen for tab updates (e.g., page reloads) to re-inject the content script
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete') {
     changeSmiley(tabId);
@@ -60,12 +56,3 @@ function changeSmiley(activeTabId) {
     );
   });
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// function changeSmiley(activeTabId) {
-//   if (focusTabId !== null) {
-//     let isFocused = activeTabId === focusTabId; //////*******i think its ok to put this variable inside of a conditional but check here if we need to debug
-//     chrome.tabs.sendMessage(focusTabId, { type: 'judgeUser', isFocused });
-//   }
-// }
-// //send a message back to the main how to update the smiley based on waht the background knows

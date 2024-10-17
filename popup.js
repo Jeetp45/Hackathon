@@ -7,6 +7,6 @@ document.getElementById('focus-here').addEventListener('click', () => {
         console.log(response);
       }
     );
-    // if we hav time lets add an alert that explains "stay on this time or he'll seriously judge you"
+    // if we hav time lets add an alert that explains "stay on this tab or he'll seriously judge you"
   });
 });
